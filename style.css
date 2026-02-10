@@ -1,0 +1,206 @@
+/* =======================
+   GLOBAL
+======================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("heart-bg.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f77b8f;
+
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+/* =======================
+   ENVELOPE SCREEN
+======================= */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#envelope {
+    width: 200px;
+    animation: pulse 1.5s infinite;
+}
+
+/* =======================
+   LETTER SCREEN
+======================= */
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window {
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3 / 2;
+    padding-top: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* =======================
+   TEXT
+======================= */
+h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+p {
+    font-size: 40px;
+    margin: 0;
+}
+
+/* =======================
+   CAT
+======================= */
+.cat {
+    width: 250px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+    pointer-events: none;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.btn {
+    width: 120px;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* YES button */
+.yes-btn {
+    position: relative;
+    z-index: 10; /* always above NO */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+}
+
+/* NO button */
+.no-wrapper {
+    position: relative;
+}
+
+.no-btn {
+    position: relative;
+    z-index: 1;
+    cursor: default;
+    transition: transform 0.25s ease;
+}
+
+/* =======================
+   FINAL TEXT
+======================= */
+.final-text {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-top: 10px;
+    padding: 10px 20px;
+
+    background-color: rgba(255, 240, 240, 0.5);
+    border-radius: 12px;
+}
+
+/* =======================
+   MOBILE TWEAKS
+======================= */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 26px;
+    }
+
+    .cat {
+        width: 200px;
+    }
+
+    .btn {
+        width: 100px;
+    }
+}
+
+/* =======================
+   MUSIC TOGGLE
+======================= */
+#music-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+    z-index: 999;
+}
+
+#music-toggle:active {
+    transform: scale(0.95);
+}
