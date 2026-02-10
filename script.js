@@ -188,14 +188,18 @@ yesBtn.addEventListener("click", () => {
     if (isFinal) return;
     isFinal = true;
 
-    heartbeatSound.pause();
-    duckMusic(1000);
-    winSound.play();
-
-    title.textContent = "YAY!! 💖";
-    catImg.src = danceCat;
-
-    letterWindow.classList.add("final");
-    buttons.style.display = "none";
+    // Show final state
+    title.textContent = "YAY!!! 💖 See you on our date!";
+    catImg.src = finalCat;
     finalText.style.display = "block";
+
+    duckMusic();
+
+    happySound.currentTime = 0;
+    happySound.play();
+
+    // Wait 3 seconds then go to YouTube
+    setTimeout(() => {
+        window.location.href = "https://youtu.be/tVRfUqyDJyM?si=AHLNJKwLPeEpJhOa&t=10";
+    }, 3000);
 });
