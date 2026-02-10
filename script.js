@@ -188,18 +188,24 @@ yesBtn.addEventListener("click", () => {
     if (isFinal) return;
     isFinal = true;
 
-    // Show final state
+    // Stop heartbeat
+    heartbeatSound.pause();
+
+    // Duck background music & play win sound
+    duckMusic(1000);
+    winSound.currentTime = 0;
+    winSound.play();
+
+    // Update UI
     title.textContent = "YAY!!! 💖 See you on our date!";
-    catImg.src = finalCat;
+    catImg.src = danceCat; // or finalCat if you prefer
+
+    letterWindow.classList.add("final");
+    buttons.style.display = "none";
     finalText.style.display = "block";
 
-    duckMusic();
-
-    happySound.currentTime = 0;
-    happySound.play();
-
-    // Wait 3 seconds then go to YouTube
+    // Redirect after 3 seconds
     setTimeout(() => {
-        window.location.href = "https://youtu.be/tVRfUqyDJyM?si=AHLNJKwLPeEpJhOa&t=10";
+        window.location.href = "https://youtu.be/tVRfUqyDJyM?si=AHLNJKwLPeEpJhOa&t=10s"; // romantic song
     }, 3000);
 });
