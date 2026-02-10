@@ -206,6 +206,6 @@ yesBtn.addEventListener("click", () => {
 
     // Redirect after 3 seconds
     setTimeout(() => {
-        window.location.href = "https://youtu.be/tVRfUqyDJyM?si=AHLNJKwLPeEpJhOa&t=10s"; // romantic song
+        window.location.href = "https://youtu.be/tVRfUqyDJyM?si=AHLNJKwLPeEpJhOa&t=8s"; // romantic song
     }, 3000);
 });
